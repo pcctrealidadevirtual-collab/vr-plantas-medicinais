@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantas Medicinais VR</title>
+
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<a-scene>
+
+    <!-- CÉU 360 -->
+    <a-sky src="assets/imagens/imagem360.jpeg"></a-sky>
+
+    <!-- ASSETS -->
+    <a-assets>
+
+        <!-- TEXTURA DO CHÃO -->
+        <img id="grama"
+             src="assets/imagens/3grama.jpg">
+
+    </a-assets>
+
+    <!-- CHÃO -->
+    <a-plane
+        position="0 0 -12"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+        src="#grama"
+        repeat="40 40"
+
+        material="
+            roughness: 1;
+            metalness: 0;
+        "
+
+        shadow="receive: true">
+    </a-plane>
+
+    <!-- SOM AMBIENTE -->
+    <a-entity
+        sound="
+        src: url(assets/audio/2floresta.mp3);
+        autoplay: true;
+        loop: true;
+        volume: 2">
+    </a-entity>
+
+<!-- PLAYER -->
+<a-entity id="rig" position="0 0 0">
+
+    <!-- CÂMERA -->
+    <a-camera
+        id="camera"
+        position="0 1.6 0"
+        look-controls>
+
+        <a-cursor
+            fuse="true"
+            fuse-timeout="2000"
+            color="yellow">
+        </a-cursor>
+
+    </a-camera>
+
+</a-entity>
+
+
+    <!-- ALFAVACA -->
+<a-image
+    id="alfavaca"
+    src="assets/imagens/alfavaca.png"
+    position="0 1.5 -12"
+    width="4"
+    height="4"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/alfavaca.mp3)">
+</a-image>
+
+<a-plane position="0 4 -12" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="ALFAVACA (ocimum grastissimum)\nfamília Lamiacae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- BABOSA -->
+<a-image
+    id="babosa"
+    src="assets/imagens/babosa1.png"
+    position="7.1 1.5 -9.7"
+    width="4"
+    height="4"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/babosa.mp3)">
+</a-image>
+
+<a-plane position="7.1 4 -9.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="BABOSA (Aloe sp)\nfamília Xanthorrhoeaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- HORTELÃ -->
+<a-image
+    id="hortela"
+    src="assets/imagens/Hortelã.png"
+    position="11.4 1.5 -3.7"
+    width="4"
+    height="4"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/hortela.mp3)">
+</a-image>
+
+<a-plane position="11.4 4 -3.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="HORTELANZINHO (Mentha piperita)\nfamília Lamiaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- CAPIM SANTO -->
+<a-image
+    id="capim_santo"
+    src="assets/imagens/capim santo.png"
+    position="11.4 1.5 3.7"
+    width="4"
+    height="4"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300" 
+
+    sound="src: url(assets/audio/camomila.mp3)">
+</a-image>
+
+<a-plane position="11.4 4 3.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="CAPIM SANTO (Cymbopogon citratus)\nfamília Poaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- ALECRIM -->
+<a-image
+    id="alecrim"
+    src="assets/imagens/Alecrim.png"
+    position="7.1 1.5 9.7"
+    width="4"
+    height="4"
+   look-at="#camera"
+
+   animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/anador1_ilovemp4.mp3)">
+</a-image>
+
+<a-plane position="7.1 4 9.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="ALECRIM (Rosmarinus officinalis)\nfamília Lamiaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- ARRUDA -->
+<a-image
+    id="arruda"
+    src="assets/imagens/Arruda.png"
+    position="0 1.5 12"
+    width="3"
+    height="3"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/arruda_audio.mp3)">
+</a-image>
+
+<a-plane position="0 4 12" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="ARRUDA (Ruta graveolens)\n família Rutaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- BOLDO -->
+<a-image
+    id="boldo"
+    src="assets/imagens/boldo.png"
+    position="-7.1 1.5 9.7"
+    width="3"
+    height="3"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/boldo_audio.mp3)">
+</a-image>
+
+<a-plane position="-7.1 4 9.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="BOLDO-CHILENO (Plectranthus neochilus) \n família Lamiaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- JAMBU -->
+<a-image
+    id="jambu"
+    src="assets/imagens/JANBU.png"
+    position="-11.4 1.5 3.7"
+    width="3"
+    height="3"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/jambu_audio.mp3)">
+</a-image>
+
+<a-plane position="-11.4 4 3.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="JAMBU (Spilanthes acmella) \n Família Asteraceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- CIDREIRA -->
+<a-image
+    id="cidreira"
+    src="assets/imagens/cidreira.png"
+    position="-11.4 1.5 -3.7"
+    width="3"
+    height="3"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/cidreira_audio.mp3)">
+</a-image>
+
+<a-plane position="-11.4 4 -3.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="CIDREIRA (Lippia alba)\n família Verbenaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+
+<!-- ANDIROBA -->
+<a-image
+    id="andiroba"
+    src="assets/imagens/andiroba.png"
+    position="-7.1 1.5 -9.7"
+    width="3"
+    height="3"
+    look-at="#camera"
+
+    animation__mouseenter="property: scale; to: 1.2 1.2 1.2; dur: 300"
+    animation__mouseleave="property: scale; to: 1 1 1; dur: 300"
+
+    sound="src: url(assets/audio/andiroba_audio.mp3)">
+</a-image>
+
+<a-plane position="-7.1 4 -9.7" width="4" height="1" color="#222" look-at="#camera">
+    <a-text value="ANDIROBA (Carapa guianensis) \n família Meliaceae"
+            align="center"
+            color="white"
+            position="0 0 0.1">
+    </a-text>
+</a-plane>
+
+</a-scene>
+
+<script>
+
+window.addEventListener('load', () => {
+
+    let audioAtual = null;
+
+    const plantas = document.querySelectorAll('a-image');
+
+    plantas.forEach(planta => {
+
+        planta.addEventListener('click', function () {
+
+            // Para o áudio anterior
+            if (audioAtual && audioAtual !== this) {
+                audioAtual.components.sound.stopSound();
+            }
+
+            // Reinicia e toca o áudio da planta clicada
+            this.components.sound.stopSound();
+            this.components.sound.playSound();
+
+            audioAtual = this;
+
+        });
+
+    });
+
+});
+
+</script>
+
+<script>
+
+window.addEventListener('load', () => {
+
+    let audioAtual = null;
+    const rig = document.querySelector('#rig');
+    const plantas = document.querySelectorAll('a-image');
+
+    plantas.forEach(planta => {
+
+        planta.addEventListener('click', function () {
+
+            // ÁUDIO
+            if (audioAtual && audioAtual !== this) {
+                audioAtual.components.sound.stopSound();
+            }
+
+            this.components.sound.stopSound();
+            this.components.sound.playSound();
+
+            audioAtual = this;
+
+            // TELETRANSPORTE
+            const pos = this.getAttribute('position');
+
+            const dx = pos.x;
+            const dz = pos.z;
+
+            const distancia = Math.sqrt(dx * dx + dz * dz);
+
+            const destinoX = pos.x - (dx / distancia) * 3;
+            const destinoZ = pos.z - (dz / distancia) * 3;
+
+            rig.setAttribute(
+                'animation',
+                `property: position;
+                 to: ${destinoX} 0 ${destinoZ};
+                 dur: 1000;
+                 easing: easeInOutQuad`
+            );
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

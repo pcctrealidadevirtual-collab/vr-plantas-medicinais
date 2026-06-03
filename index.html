@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Introdução VR - Plantas Medicinais</title>
+<script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+
+<style>
+    body{
+    margin:0;
+    overflow:hidden;
+    }
+</style>
+
+</head>
+
+<body>
+
+
+<a-scene>
+
+
+    <!-- ASSETS -->
+    <a-assets>
+
+
+        <!-- IMAGEM 360 -->
+        <img id="imagem360" src="assets/imagens/imagem360.jpeg">
+
+
+        <!-- ÁUDIO -->
+        <audio id="audioBoasVindas"
+               src="assets/audio/boasvindas.mp3"
+               preload="auto">
+        </audio>
+
+
+    </a-assets>
+
+
+    <!-- CÉU 360 -->
+    <a-sky src="#imagem360" rotation="0 -90 0"></a-sky>
+
+
+    <!-- LUZ -->
+    <a-light type="ambient" intensity="1"></a-light>
+
+
+    <!-- CÂMERA -->
+    <a-entity camera look-controls position="0 1.6 0">
+        <!-- CURSOR CENTRAL -->
+        <a-cursor
+            fuse="true"
+            fuse-timeout="1200"
+            color="white">
+        </a-cursor>
+    </a-entity>
+
+
+    <!-- PAINEL DE BOAS-VINDAS -->
+    <a-plane
+        position="0 2 -3"
+        width="6"
+        height="1"
+        color="#000000"
+        opacity="0.6"
+        text="
+            value: Bem-vindo ao Mundo Virtual das Plantas Medicinais!;
+            align: center;
+            color: white;
+            width: 7;">
+    </a-plane>
+
+
+    <!-- BOTÃO START -->
+    <a-plane
+        id="botaoStart"
+        position="0 0.8 -3"
+        width="2"
+        height="0.8"
+        color="#111827"
+        class="clicavel"
+        text="
+            value: 🌿INICIAR🌿;
+            align: center;
+            color: white;
+            width: 6;">
+
+
+    </a-plane>
+     
+
+</a-scene>
+
+
+<script>
+
+
+/////////////////////////////////////////
+// INICIAR ÁUDIO AO PRIMEIRO CLIQUE
+/////////////////////////////////////////
+
+
+window.addEventListener('click', () => {
+
+
+    const audio = document.querySelector('#audioBoasVindas');
+
+
+    audio.play();
+
+
+}, { once:true });
+
+
+/////////////////////////////////////////
+// BOTÃO START
+/////////////////////////////////////////
+
+
+document.querySelector('#botaoStart')
+.addEventListener('click', () => {
+
+
+    /////////////////////////////////////////
+    // PARAR ÁUDIO
+    /////////////////////////////////////////
+
+
+    document.querySelector('#audioBoasVindas').pause();
+
+
+    /////////////////////////////////////////
+    // IR PARA O AMBIENTE DAS PLANTAS
+    /////////////////////////////////////////
+
+
+    window.location.href = "plantas.html";
+
+
+});
+
+
+</script>
+
+
+</body>
+</html>
